@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package streamingcalc;
+
+service Streamingcalc {
+  rpc Bwserver(BwserverRequest) returns (Response);
+  rpc Serverusagebw(ServerusagebwRequest) returns (Response);
+}
+
+message BwserverRequest{
+  float nblisteners = 1;
+  float bitrate = 2;
+}
+
+message ServerusagebwRequest{
+  float nblisteners = 1;
+  float bitrate = 2;
+  float nbdays = 3;
+  float nbhours = 4;
+}
+
+message Response{
+  float result = 1;
+}
